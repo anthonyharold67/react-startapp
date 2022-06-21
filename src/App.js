@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import Main from './components/Main';
+import Navbar from "./components/Navbar"
+import {useState} from "react"
+
+let name ="anthony"
+let age =25
 
 function App() {
+  const [showMain,setShowMain] = useState(true)
+
+  
+  const myShow=()=>{
+    // setShowMain(!showMain)
+
+    // if(showMain==true){
+    //   setShowMain(false)
+    // }else{
+    //   setShowMain(true)
+    // }
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar user={name} age={age}/>
+      {/* {showMain && <Main user={name} age={age} />} */}
+      {showMain ? <Main user={name} age={age} />: <h1>Loading</h1>}
+      hello
+      <button onClick={()=>setShowMain(!showMain)}>Main componenti</button>
+      {/* <button onClick={myShow}>Main componenti</button> */}
     </div>
   );
 }
